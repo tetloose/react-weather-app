@@ -1,0 +1,35 @@
+@import '../settings';
+@import '../mixins';
+
+.location[type=search] {
+	display: block;
+	width: 100%;
+	margin: 0;
+	background-color: color(location, background);
+	border-width: 1px;
+	border-style: solid;
+	border-color: color(location, border);
+	color: color(base, dark);
+	font-size: vars(type, med);
+	line-height: normal;
+	box-shadow: none;
+	outline: none;
+
+	@include rem((padding: spacing(.5) spacing(1)));
+
+	@include placeholder {
+		color: color(location, placeholder);
+	}
+
+	@include mq-hover {
+		@include transition(border-color, 200ms, ease-in-out);
+
+		&:hover {
+			border-color: color(location, border-active);
+		}
+	}
+
+	&:focus {
+		border-color: color(location, border-active);
+	}
+}

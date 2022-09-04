@@ -16,7 +16,14 @@ module.exports = {
     'function-comma-space-after': 'always',
     'color-hex-case': 'lower',
     'color-hex-length': 'short',
-    'color-named': 'never',
+    'color-named': [
+      'never',
+      {
+        'ignore': [
+          'inside-function'
+        ]
+      }
+    ],
     'color-no-invalid-hex': true,
     'color-function-notation': 'modern',
     'selector-no-qualifying-type': true,
@@ -63,9 +70,8 @@ module.exports = {
     ],
     'order/order': [
       [
-        'declarations',
         'dollar-variables',
-        'custom-properties',
+        'declarations',
         'at-rules',
         {
           'type': 'at-rule',
@@ -75,6 +81,7 @@ module.exports = {
           'type': 'at-rule',
           'name': 'media',
         },
+        'custom-properties',
         'rules'
       ],
       {
