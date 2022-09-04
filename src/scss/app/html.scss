@@ -7,8 +7,8 @@ html {
 	line-height: 1.5;
 	text-rendering: optimizespeed;
 
+	@include font-smoothing;
 	@include f-family;
 	@include f-weight-normal;
-	@include font-smoothing;
 	@include fluid-type(vars(brake-points, sml), vars(brake-points, med), vars(type, med), vars(type, lrg));
 }
