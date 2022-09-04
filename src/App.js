@@ -1,9 +1,11 @@
-import './scss/app.scss'
+import './scss/app/app.styles.scss'
 
-function App() {
+const App = () => {
   return (
-    <h1>Hugo&Cat Weather APP</h1>
-  );
+    <div className="app">
+      <h1>helo</h1>
+    </div>
+  )
 }
 
-export default App;
+export default App
