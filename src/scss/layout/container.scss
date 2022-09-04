@@ -1,0 +1,38 @@
+.l-container {
+  position: relative;
+  @include rem((padding: 0 0 0 58px));
+
+  &.not-authorised {
+    padding: 0;
+  }
+
+  &__block {
+    position: relative;
+    @include rem((padding: (spacing(1) + 60) 0 spacing(1) 0));
+
+    @include transition(all, 200ms);
+    @include ha();
+
+    .not-authorised & {
+      padding: 0;
+    }
+
+    &[class*=u-vh-] {
+      @include rem((padding-bottom: (spacing(1) + 60)));
+    }
+
+    &.insights-active {
+      @include mq($med) {
+        @include rem((padding-right: 385px));
+      }
+    }
+
+    .l-container__block {
+      padding: 0;
+
+      &[class*=u-vh-] {
+        min-height: auto;
+      }
+    }
+  }
+}

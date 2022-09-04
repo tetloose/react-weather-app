@@ -1,0 +1,16 @@
+@function color($color-name, $color-variant: false) {
+	@if $color-variant {
+		@return map-get(map-get($colors, $color-name), $color-variant);
+	} @else {
+		@return map-get($colors, $color-name);
+	}
+}
+
+$light: #fff;
+$dark: #000;
+$colors: (
+	base: (
+		dark: $dark,
+		light: $light
+	)
+);

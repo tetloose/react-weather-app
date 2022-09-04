@@ -1,1 +1,1 @@
-export const openWeatherMapApi = 'Well hello there';
+export const openWeatherMapApi = 'Well hello there'

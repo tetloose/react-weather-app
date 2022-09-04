@@ -1,3 +1,5 @@
+import './scss/app.scss'
+
 function App() {
   return (
     <h1>Hugo&Cat Weather APP</h1>
