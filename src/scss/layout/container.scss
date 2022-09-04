@@ -1,38 +1,32 @@
 .l-container {
-  position: relative;
-  @include rem((padding: 0 0 0 58px));
+	$this: &;
 
-  &.not-authorised {
-    padding: 0;
-  }
+	position: relative;
+	width: 100%;
 
-  &__block {
-    position: relative;
-    @include rem((padding: (spacing(1) + 60) 0 spacing(1) 0));
+	@include mq($med, max-width) {
+		@include rem((padding-bottom: spacing(2)));
+	}
 
-    @include transition(all, 200ms);
-    @include ha();
+	@include mq($med) {
+		@include rem((padding-bottom: spacing(3)));
+	}
 
-    .not-authorised & {
-      padding: 0;
-    }
+	&.is-align-item-center {
+		display: flex;
+		min-height: vars(vh, fullscreen);
+		align-items: center;
+	}
 
-    &[class*=u-vh-] {
-      @include rem((padding-bottom: (spacing(1) + 60)));
-    }
+	&__block {
+		width: 100%;
 
-    &.insights-active {
-      @include mq($med) {
-        @include rem((padding-right: 385px));
-      }
-    }
+		@include mq($med, max-width) {
+			@include rem((padding-top: spacing(2)));
+		}
 
-    .l-container__block {
-      padding: 0;
-
-      &[class*=u-vh-] {
-        min-height: auto;
-      }
-    }
-  }
+		@include mq($med) {
+			@include rem((padding-top: spacing(3)));
+		}
+	}
 }
