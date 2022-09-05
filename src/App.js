@@ -33,7 +33,7 @@ const App = () => {
                 }
               ))
         } catch(error) {
-          setError(noError)
+          console.log('error')
         }
       }
 
