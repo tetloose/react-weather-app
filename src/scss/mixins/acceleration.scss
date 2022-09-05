@@ -1,0 +1,9 @@
+@mixin hardware-acceleration($on: true) {
+	@if $on {
+		backface-visibility: hidden;
+		will-change: transform, opacity;
+	} @else {
+		backface-visibility: visible;
+		will-change: auto;
+	}
+}

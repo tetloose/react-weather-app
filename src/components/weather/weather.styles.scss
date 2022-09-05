@@ -1,0 +1,134 @@
+@import '../../scss/settings';
+@import '../../scss/mixins';
+
+.weather {
+	$this: &;
+
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: intrinsic(400, 800);
+	overflow: hidden;
+	background-color: color(weather, background);
+	color: color(weather, color);
+	text-align: center;
+
+	@include rem((font-size: vars(type, sml)));
+
+	@include mq($med, max-width) {
+		@include rem((margin-top: spacing(1)));
+	}
+
+	@include mq($med) {
+		@include rem((margin-top: spacing(1.5)));
+	}
+
+	&__date {
+		position: absolute;
+		top: 5%;
+		text-shadow: color(weather, text-shadow);
+
+		@include rem((right: spacing(1)));
+		@include rem((left: spacing(1)));
+	}
+
+	&__details {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 100%;
+		padding-top: 5%;
+		padding-bottom: 5%;
+		transform: translate(-50%, -50%);
+
+		@include rem((padding-right: spacing(1)));
+		@include rem((padding-left: spacing(1)));
+	}
+
+	&__icon {
+		width: 100%;
+		height: 0;
+
+		@include background-image(cover);
+
+		&--static {
+			margin-right: auto;
+			margin-left: auto;
+			padding-bottom: intrinsic(100, 60);
+		}
+
+		&--fixed {
+			position: absolute;
+			right: 0;
+			bottom: -20%;
+			width: 150%;
+			padding-bottom: intrinsic(100, 100);
+			opacity: .2;
+		}
+	}
+
+	&__description {
+		text-transform: uppercase;
+		text-shadow: color(weather, text-shadow);
+
+		@include rem((margin-top: spacing(1)));
+		@include rem((letter-spacing: 1px));
+	}
+
+	&__temp {
+		text-transform: uppercase;
+		text-shadow: color(weather, text-shadow);
+
+		&--celsius {
+			line-height: 1;
+
+			@include rem((margin-top: spacing(1)));
+			@include rem((font-size: vars(type, xlrg)));
+			@include f-family(heading);
+		}
+
+		// &--fahrenheit {
+
+		// }
+	}
+
+	&--clear-sky {
+		background-image: color(weather, clear-sky);
+	}
+
+	&--clouds {
+		background-image: color(weather, few-clouds);
+	}
+
+	&--few-clouds {
+		background-image: color(weather, few-clouds);
+	}
+
+	&--broken-clouds {
+		background-image: color(weather, broken-clouds);
+	}
+
+	&--scattered-clouds {
+		background-image: color(weather, scattered-clouds);
+	}
+
+	&--rain {
+		background-image: color(weather, rain);
+	}
+
+	&--shower-rain {
+		background-image: color(weather, shower-rain);
+	}
+
+	&--thunderstorm {
+		background-image: color(weather, thunderstorm);
+	}
+
+	&--snow {
+		background-image: color(weather, snow);
+	}
+
+	&--mist {
+		background-image: color(weather, mist);
+	}
+}

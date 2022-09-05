@@ -1,0 +1,22 @@
+@import 'https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap';
+
+@mixin f-family($heading: false) {
+	@if $heading {
+		font-family: 'Roboto Condensed', sans-serif;
+	} @else {
+		font-family: Roboto, sans-serif;
+	}
+}
+
+@mixin f-style-italic {
+	font-style: italic;
+}
+
+@mixin f-weight-normal {
+	font-weight: 400;
+}
+
+@mixin f-weight-bold {
+	font-weight: 700;
+}

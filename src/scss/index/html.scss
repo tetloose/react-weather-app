@@ -1,0 +1,14 @@
+html {
+	min-height: vars(vh, fullscreen);
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: color(base, light);
+	color: color(base, dark);
+	font-size: 100%;
+	line-height: 1.4;
+	text-rendering: optimizespeed;
+
+	@include font-smoothing;
+	@include f-family;
+	@include f-weight-normal;
+}

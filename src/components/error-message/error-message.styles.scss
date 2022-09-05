@@ -1,0 +1,26 @@
+@import '../../scss/settings';
+@import '../../scss/mixins';
+
+.error-message {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	background-color: color(error, background);
+	color: color(error, color);
+	text-align: center;
+	transform: translateY(-100%);
+
+	@include rem((font-size: var(type, lrg)));
+	@include rem((padding: spacing(1)));
+	@include transition(all, 200ms, ease-in-out);
+	@include hardware-acceleration;
+
+	&.is-active {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+}

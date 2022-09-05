@@ -1,0 +1,43 @@
+@function color($color-name, $color-variant: false) {
+	@if $color-variant {
+		@return map-get(map-get($colors, $color-name), $color-variant);
+	} @else {
+		@return map-get($colors, $color-name);
+	}
+}
+
+$light: #fff;
+$dark: #000;
+$red: #de4141;
+$colors: (
+	base: (
+		dark: $dark,
+		light: $light
+	),
+	error: (
+		background: $red,
+		color: $light
+	),
+	location: (
+		background: $light,
+		border: #{rgba($dark, .6)},
+		border-active: $dark,
+		color: $dark,
+		placeholder: #{rgba($dark, .6)}
+	),
+	weather: (
+		background: $dark,
+		border: $dark,
+		color: $light,
+		text-shadow: 0 0 2px #{rgba($dark, .6)},
+		clear-sky: linear-gradient(to bottom right, #ffdb4e, #ff9872),
+		few-clouds: linear-gradient(to bottom right, #03b9a5, #30eceb),
+		scattered-clouds: linear-gradient(to bottom right, #3e93b2, #44edec),
+		broken-clouds: linear-gradient(to bottom right, #3e93b2, #44edec),
+		shower-rain: linear-gradient(to bottom right, #066e94, #6fd4fb),
+		rain: linear-gradient(to bottom right, #24a0cd, #6fd4fb),
+		thunderstorm: linear-gradient(to bottom right, #0a465d, #61a1ba),
+		snow: linear-gradient(to bottom right, #74a3de, #dcedf4),
+		mist: linear-gradient(to bottom right, #919494, #d6d8d9)
+	)
+);

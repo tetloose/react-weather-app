@@ -1,0 +1,59 @@
+*:visited,
+*:hover,
+*:active,
+*:link {
+	outline: 0;
+}
+
+ol,
+ul {
+	list-style-type: none;
+}
+
+u {
+	text-decoration: underline;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+a {
+	background-color: transparent;
+	text-decoration: none;
+	overflow-anchor: none;
+	text-decoration-skip-ink: auto;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	vertical-align: baseline;
+	position: relative;
+	font-size: 76%;
+	line-height: 0;
+}
+
+sup {
+	top: rem(-4px);
+}
+
+sub {
+	bottom: rem(-4px);
+}
+
+b,
+strong {
+	@include f-weight-bold;
+}
+
+em {
+	@include f-style-italic;
+}
+
+i {
+	font-style: normal;
+}

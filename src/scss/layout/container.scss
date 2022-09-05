@@ -1,0 +1,32 @@
+.l-container {
+	$this: &;
+
+	position: relative;
+	width: 100%;
+
+	@include mq($med, max-width) {
+		@include rem((padding-bottom: spacing(2)));
+	}
+
+	@include mq($med) {
+		@include rem((padding-bottom: spacing(3)));
+	}
+
+	&.is-align-item-center {
+		display: flex;
+		min-height: vars(vh, fullscreen);
+		align-items: center;
+	}
+
+	&__block {
+		width: 100%;
+
+		@include mq($med, max-width) {
+			@include rem((padding-top: spacing(2)));
+		}
+
+		@include mq($med) {
+			@include rem((padding-top: spacing(3)));
+		}
+	}
+}
