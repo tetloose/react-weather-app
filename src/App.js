@@ -15,10 +15,6 @@ const App = () => {
   const [error, setError] = useState(noError)
 
   useEffect(() => {
-    console.log(error)
-  }, [error])
-
-  useEffect(() => {
     const newLocation = locationField
       .toLocaleLowerCase()
       .split(' ')
@@ -37,7 +33,7 @@ const App = () => {
                 }
               ))
         } catch(error) {
-          console.log('error')
+          setError(noError)
         }
       }
 
