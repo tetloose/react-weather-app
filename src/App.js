@@ -2,36 +2,50 @@ import { useState, useEffect } from 'react';
 
 import SearchField from './components/search-field/search-field.component'
 import WeatherLoop from './components/weather-loop/weather-loop.component'
+import ErrorMessage from './components/error-message/error-message.component';
 
 const App = () => {
-  const [locationField, setLocationField] = useState('London GB')
-  const [location, setLocation] = useState();
+  const noError = {
+    msg: 'No errors',
+    toggle: 'is-closed'
+  }
+  const [locationField, setLocationField] = useState('London')
   const [fiveDayForcast, setFiveDayForecast] = useState([]);
   const [filteredFiveDayForcast, setFilteredFiveDayForcast] = useState([]);
+  const [error, setError] = useState(noError)
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setLocation(
-        {
-          lat: position.coords.latitude,
-          lon: position.coords.longitude
+    console.log(error)
+  }, [error])
+
+  useEffect(() => {
+    const newLocation = locationField
+      .toLocaleLowerCase()
+      .split(' ')
+      .join('')
+
+      const fetchFiveDayForecast = async () => {
+        try {
+          await fetch(`${process.env.REACT_APP_WEATHER_API}?q=${newLocation}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
+            .then(response => response.json())
+            .then(result => result.cod !== '404'
+              ? setFiveDayForecast(result)
+              : setError(
+                {
+                  msg: result.message,
+                  toggle: 'is-active'
+                }
+              ))
+        } catch(error) {
+          console.log('error')
         }
-      )
-    })
-  }, [])
+      }
 
-  useEffect(() => {
-    const fetchFiveDayForecast = async () => {
-      await fetch(`${process.env.REACT_APP_WEATHER_API}?lat=${location.lat}&lon=${location.lon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
-        .then(response => response.json())
-        .then(result => setFiveDayForecast(result))
-    }
+      if (locationField !== undefined) {
+        fetchFiveDayForecast();
+      }
 
-    if (location !== undefined) {
-      fetchFiveDayForecast();
-    }
-
-  }, [location])
+  }, [locationField])
 
   useEffect(() => {
     if (fiveDayForcast.list !== undefined)  {
@@ -59,7 +73,8 @@ const App = () => {
   }, [fiveDayForcast])
 
   const onLocationChange = (event) => {
-    setLocationField(event.target.value.toLocaleLowerCase())
+    setLocationField(event.target.value)
+    setError(noError)
   }
 
   return (
@@ -71,7 +86,7 @@ const App = () => {
               debounceTimer={500}
               className='location'
               value={locationField}
-              placeholder='Enter Location GB'
+              placeholder='Search by county'
               onChangeHandler={onLocationChange}
             />
           </div>
@@ -82,6 +97,7 @@ const App = () => {
           : 'Sorry no weather today'
         }
       </section>
+      <ErrorMessage msg={error} />
     </main>
   )
 }
