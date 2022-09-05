@@ -6,7 +6,7 @@ import ErrorMessage from './components/error-message/error-message.component';
 
 const App = () => {
   const noError = {
-    msg: 'No errors',
+    msg: 'City found',
     toggle: 'is-closed'
   }
   const [locationField, setLocationField] = useState('London')
@@ -97,7 +97,7 @@ const App = () => {
           : 'Sorry no weather today'
         }
       </section>
-      <ErrorMessage msg={error} />
+      <ErrorMessage error={error} />
     </main>
   )
 }

@@ -11,7 +11,7 @@
 	background-color: color(error, background);
 	color: color(error, color);
 	text-align: center;
-	transform: translateY(-100%);
+	transform: translateY(100%);
 
 	@include rem((font-size: var(type, lrg)));
 	@include rem((padding: spacing(1)));
