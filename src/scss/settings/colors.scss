@@ -8,10 +8,15 @@
 
 $light: #fff;
 $dark: #000;
+$red: #de4141;
 $colors: (
 	base: (
 		dark: $dark,
 		light: $light
+	),
+	error: (
+		background: $red,
+		color: $light
 	),
 	location: (
 		background: $light,
