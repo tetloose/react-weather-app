@@ -49,58 +49,21 @@
 		width: 100%;
 		height: 0;
 
-		@include background-image(contain);
+		@include background-image(cover);
 
 		&--static {
-			max-width: 60%;
 			margin-right: auto;
 			margin-left: auto;
-			padding-bottom: intrinsic(100, 50);
+			padding-bottom: intrinsic(100, 60);
 		}
 
 		&--fixed {
 			position: absolute;
+			right: 0;
 			bottom: -20%;
-			left: -20%;
-			max-width: 100%;
+			width: 150%;
 			padding-bottom: intrinsic(100, 100);
 			opacity: .2;
-		}
-
-		#{$this}--clear-sky & {
-			background-image: url(../../assets/01d.svg);
-		}
-
-		#{$this}--few-clouds & {
-			background-image: url(../../assets/02d.svg);
-		}
-
-		#{$this}--scattered-clouds & {
-			background-image: url(../../assets/03d.svg);
-		}
-
-		#{$this}--broken-clouds & {
-			background-image: url(../../assets/04d.svg);
-		}
-
-		#{$this}--shower-rain & {
-			background-image: url(../../assets/09d.svg);
-		}
-
-		#{$this}--rain & {
-			background-image: url(../../assets/10d.svg);
-		}
-
-		#{$this}--thunderstorm & {
-			background-image: url(../../assets/11d.svg);
-		}
-
-		#{$this}--snow & {
-			background-image: url(../../assets/13d.svg);
-		}
-
-		#{$this}--mist & {
-			background-image: url(../../assets/50d.svg);
 		}
 	}
 
@@ -133,24 +96,28 @@
 		background-image: color(weather, clear-sky);
 	}
 
-	&--few-clouds {
+	&--clouds {
 		background-image: color(weather, few-clouds);
 	}
 
-	&--scattered-clouds {
-		background-image: color(weather, scattered-clouds);
+	&--few-clouds {
+		background-image: color(weather, few-clouds);
 	}
 
 	&--broken-clouds {
 		background-image: color(weather, broken-clouds);
 	}
 
-	&--shower-rain {
-		background-image: color(weather, shower-rain);
+	&--scattered-clouds {
+		background-image: color(weather, scattered-clouds);
 	}
 
 	&--rain {
 		background-image: color(weather, rain);
+	}
+
+	&--shower-rain {
+		background-image: color(weather, shower-rain);
 	}
 
 	&--thunderstorm {
