@@ -1,4 +1,4 @@
-# Hugo&Cat Code Test
+# React Weather APP
 
 **Weather Widget**
 
